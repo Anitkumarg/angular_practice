@@ -1,0 +1,33 @@
+.header{
+    padding: 30px 40px;
+    display: flex;
+    background-color: #fff;
+}
+
+.site-image{
+    width: 420px;
+    margin-right: 50px;
+    text-align: center;
+}
+
+.site-slogan h2{
+    font-size: 45px;
+}
+
+.container{
+    padding: 20px 30px;
+    margin-top: 10px;
+    background-color: #00ffff61;
+}
+
+.products{
+    display: flex;
+}
+
+.btn-more{
+    min-width: 160px;
+    margin-top: 10px;
+    padding: 10px 0px;
+    background-color: #ff14935e;
+    border: none;
+}

@@ -1,0 +1,44 @@
+<app-search (searchTextChanged)="onSearchTextEntered($event)"></app-search>
+<app-filter
+(filterRadioButtonSelectionChanged)="onFilterRadioButtonChanged($event)" 
+  [all]="getAllProduct()"
+  [available]="getAvailableProduct()"
+  [notAvailable]="getNotavailableProduct()">
+</app-filter>
+<table class="table">
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">Image</th>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">Color</th>
+      <th scope="col">Availability</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let item of products">
+      <!-- condition for filter -->
+      <!-- productCountRadioButton === 'All' || productCountRadioButton === item.availability -->
+      <!-- condition for search -->
+      <!-- searchText === '' || item.name.toLowerCase().includes(searchText) -->
+      <tr *ngIf="productCountRadioButton === 'All' || productCountRadioButton === item.availability" [ngStyle]="{backgroundColor: item.availability === 'Available' ? '#D5F5E3' : '#FADBDB'}">
+        <img src="{{item.image}}" width="120px" height="100px" >
+        <td>{{item.name}}</td>
+        <td>{{item.price}}</td>
+        <td>{{item.color}}</td>
+        <td [ngStyle]="{color: item.availability === 'Available' ? 'green' : 'red'}">{{item.availability}}</td>
+        <td>
+          <div class="d-flex justify-content-between">
+            <button class="mr-2" type="button" class="btn btn-success">Show Details</button>
+            <button *ngIf="item.availability === 'Available' ; else notifyme" type="button" class="btn btn-warning">Buy Now</button>
+            <ng-template #notifyme>
+              <button class="mr-2" type="button" class="btn btn-danger">Notify Me</button>
+            </ng-template>
+            <button type="button" (click)="selectedProduct = item" class="btn btn-info">Select</button>
+          </div>
+        </td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>

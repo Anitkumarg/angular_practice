@@ -1,0 +1,20 @@
+<div class="wrapper">
+    <app-nav></app-nav>
+    <app-header></app-header>
+    <app-footer></app-footer>
+    <app-products #product></app-products>
+    <div>
+        <p>you have selected {{product.selectedProduct?.name}}</p>
+        <div>
+            <div class="d-inline">
+                <label for="">DOB:</label>
+                <input type="date" style="margin-right: 15px;" class="mb-3" #dobInput (blur)="calculateAge()">
+            </div>
+            <div class="d-inline">
+                <label for="">Age:</label>
+                <input type="text" #ageInput>
+            </div>
+        </div>
+    </div>
+</div>
+{{productComp.randomFunc()}}

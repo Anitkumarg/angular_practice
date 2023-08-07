@@ -1,0 +1,25 @@
+<div class="header">
+    <div class="site-image">
+        <img [src]="source" height="240" width="320">
+    </div>
+    <div class="site-slogan">
+        <h2>{{ slogan }}</h2>
+    </div>
+</div>
+<div class="container">
+    <h3>New in Smart Phones</h3>
+    <div class="products">
+        <app-new-product>
+            <h4 class="title">New in iPhone</h4>
+            <button class="btn btn-more">Show more in iPhone</button>
+        </app-new-product>
+        <app-new-product>
+            <h4 class="title">New in Samsung</h4>
+            <button class="btn btn-more">Show more in Samsung</button>
+        </app-new-product>
+        <app-new-product>
+            <h4 class="title">New in OnePlus</h4>
+            <button class="btn btn-more">Show more in OnePlus</button>
+        </app-new-product>
+    </div>
+</div>
